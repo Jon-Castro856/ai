@@ -6,4 +6,8 @@ def get_files_info(working_directory, directory=None):
     if not os.path.isdir(directory):
         print(f'Error: "{directory}" is not a directory')
 
-    
+    dir_contents = os.listdir(directory)
+    string_list = []
+
+    if directory is not ".":
+        
