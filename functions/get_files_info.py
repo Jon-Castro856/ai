@@ -9,5 +9,4 @@ def get_files_info(working_directory, directory=None):
     dir_contents = os.listdir(directory)
     string_list = []
 
-    if directory is not ".":
-        
+            
