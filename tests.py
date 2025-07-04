@@ -1,27 +1,31 @@
 import unittest
-from functions.write_file import write_file
+from functions.run_python import run_python_file
 
 class Test(unittest.TestCase):
     def test_gfo(self):
-        print("Testing with lorem")
-        files = write_file("calculator", "lorem.txt", "wait, this isn't lorem ipsum")
+        print("Testing")
+        files = run_python_file("calculator", 'main.py')
+        print(files)
+        self.assertTrue(files)
+        print("------------------------------------")
+
+        print("Testing 2")
+        files = run_python_file("calculator", 'tests.py')
+        print(files)
+        self.assertTrue(files)
+        print("------------------------------------")
+
+        print("Testing external directories")
+        files = run_python_file("calculator", '../main.py')
+        print(files)
+        self.assertTrue(files)
+        print("------------------------------------")
+
+        print("Testing nonexisting file")
+        files = run_python_file("calculator", 'nonexistent.py')
         print(files)
         self.assertTrue(files)
         print("------------------------------------")
     
-        print("Testing with new file")
-        files = write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet")
-        print(files)
-        self.assertTrue(files)
-        print("------------------------------------")
-
-        print("Testing with non-existing directory")
-        files = write_file("calculator", "/tmp/temp.txt", "this should not be allowed")
-        print(files)
-        self.assertTrue(files)
-        print("------------------------------------")
-
-
-
 if __name__ == "__main__":
     unittest.main()
